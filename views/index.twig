@@ -1,0 +1,101 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+  <section>
+    <div class="container">
+      <div class="content">
+
+        <div class="resume">
+          <h3>F.A.Q</h3>
+          <p>How does is it works ?</p>
+          <p>
+            There is a default list set by our choice but don't be sad, you can edit it as you wish.</p>
+          <p>On each line, you can see a button which once clicked give you more info of the currency and a display of
+            button actions. You can edit, delete and even add a new one.</p>
+          <p>Be aware that if cookie is accepted, you'll get your edited list everytime you connect on Crypto Market.
+            Otherwise, we use the localstorage of your browser.</p>
+          <p>If you want to reset the list, you can reset everything by clicking on the reset button.</p>
+          <p>Now it's time to check the market !</p>
+        </div>
+
+        <div class="action-content-container">
+          <div class="action-content-reset-list">
+            <button class="btn-reset-list">RESET LIST</button>
+          </div>
+          <div class="current-time-info">
+            <p>
+              <span class="date"></span>
+              <span class="datetime"></span>
+            </p>
+          </div>
+          <div class="action-content-add-new">
+            <button class="btn-add-new">ADD NEW CURRENCY</button>
+          </div>
+        </div>
+
+        <div class="container-content-table" style="overflow-x: auto;">
+          <table class="main-table" id="main-table">
+            <thead>
+            <th>#</th>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>24H %</th>
+            <th>7D %</th>
+            <th>MARKET CAP</th>
+            <th>VOLUME 24H</th>
+            <th>CTA</th>
+            </thead>
+
+            <tbody>
+            <tr>
+              <td>#1</td>
+              <td>Bitcoin BTC</td>
+              <td>$58000</td>
+              <td>
+                 <span style="color: #32CD32;">
+                  <i class="fa fa-arrow-up"></i> 1.65%
+                </span>
+              </td>
+              <td>
+                <span style="color: #DC143C;">
+                  <i class="fa fa-arrow-down"></i> 1.65%
+                </span>
+              </td>
+              <td>$1,475,623,213</td>
+              <td>
+                volume
+              </td>
+              <td>
+                <button>ACTIONS</button>
+              </td>
+            </tr>
+            <tr>
+              <td>#2</td>
+              <td>Etherum ETH</td>
+              <td>$1600</td>
+              <td>
+                 <span style="color: #32CD32;">
+                  <i class="fa fa-arrow-up"></i> 4.35%
+                </span>
+              </td>
+              <td>
+                <span style="color: #32CD32;">
+                  <i class="fa fa-arrow-up"></i> 2.14%
+                </span>
+              </td>
+              <td>$66,456,213</td>
+              <td>
+                volume
+              </td>
+              <td>
+                <button>ACTIONS</button>
+              </td>
+            </tr>
+            <tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

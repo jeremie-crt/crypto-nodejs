@@ -1,0 +1,102 @@
+<div class="modal-wrapper" id="modal-for-action">
+    <div class="modal-content">
+        <h2 class="modal-title">CONTENT MODAL</h2>
+
+        <div class="content">
+            <span class="close-modal">X</span>
+            <p class="introduction">Uniquely transition leveraged markets with compelling e-business. Distinctively
+                facilitate 24/365 experiences via principle-centered core competencies. Seamlessly administrate cross-unit
+                applications without parallel synergy. Compellingly productivate end-to-end ideas before effective
+                web-readiness. Monotonectally leverage other's 24/7 channels without professional core competencies.
+                Efficiently facilitate diverse.</p>
+
+            <div class="picker-inputs">
+                <div class="action-content delete">
+                    <h3>Delete this one ?</h3>
+                    <button id="btn-del-crypto">DELETE</button>
+                </div>
+                <div class="action-content add-to-fav">
+                    <h3>Add to favorite list ?</h3>
+                    <button id="btn-add-to-fav">ADD TO FAV LIST</button>
+                </div>
+                <div class="action-content add-new">
+                    <h3>Add another currency ?</h3>
+                    <button class="btn-add-new">ADD NEW CURRRENCY</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-wrapper" id="modal-add-new">
+    <div class="modal-content">
+        <h2 class="modal-title">ADD NEW CRYPTO</h2>
+
+        <div class="content">
+            <span class="close-modal">X</span>
+            <p class="introduction">You can edit the list by adding a new currency with the abbreviation in the input. It'll
+                be added with the information linked from the API CoinMarket.</p>
+
+            <div class="picker-inputs">
+                <div class="picker-inputs-content">
+                    <p>Find one directly from this list of various crypto currencies on the market.</p>
+                    <select name="" id="select-add-new">
+                        <option value="">...</option>
+                        <option value="SLX">SLX</option>
+                        <option value="QTUM">QTUM</option>
+                        <option value="SOL">SOL</option>
+                    </select>
+                    <button class="btn-confirm-add-new-select">CONFIRM THIS CHOICE</button>
+                    <br>
+                    <span class="error-on-confirm-add-new-select"></span>
+                </div>
+
+                <div class="picker-inputs-content">
+                    <p>Type one directly and if it matches one existing on the market it'll be added.</p>
+                    <input type="text" id="input-add-new" placeholder="ex:LBTC" value="">
+                    <button class="btn-confirm-add-new-input">CONFIRM THIS CHOICE</button>
+                    <br>
+                    <span class="error-on-confirm-add-new-input"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- COOKIE MODALS -->
+<div class="modal-cookie" id="modal-for-init-cookie">
+    <div class="modal-content-cookie">
+        <h2 class="modal-title">COOKIE AGREEMENT</h2>
+        <div class="content">
+            <p class="introduction">The use of cookie is needed to plainfully enjoy the service of Crypto Market. There is absolutely no ads tracking set in our service or anything similar.
+                The use of it on Crypto Market is only to save your own list of crypto currencies edited by your own actions through the platform functions available.
+                It'll be saved for 30 days. Eeach time you edit your list the cookie lifetime will be refreshed.
+                You can fully trust the use of cookie on Crypto Market.</p>
+
+            <div class="row">
+                <div class="action-content delete">
+                    <button id="btn-accept-cookie">I TRUST YOU GUYS</button>
+                </div>
+
+                <div class="action-content delete">
+                    <button id="btn-decline-cookie">HUM LET ME THINK</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal-cookie-repop" id="modal-for-repop-cookie">
+    <div class="modal-content-cookie-repop">
+        <div class="spinner"></div>
+        <div class="content">
+            <div class="action-content fa">
+                <i class="fas fa-external-link-alt"></i>
+            </div>
+            <div class="action-content img">
+                <img src="./img/cookie.jpg" alt="" style="width: 100%">
+            </div>
+        </div>
+    </div>
+</div>
