@@ -3,6 +3,6 @@ var router = express.Router();
 let controller = require('../controllers/homepage')
 
 /* GET home page. */
-router.get('/', controller.welcomePage);
+router.get('/', controller.homePage);
 
 module.exports = router;

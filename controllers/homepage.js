@@ -1,13 +1,20 @@
-const coinMarketService = require('../services/API/CoinMarketApi')
+const coinMarketService = require('../services/API/CoinMarketManager')
 
 /**
  * Display the HomePage
  * @param req
  * @param res
  */
-exports.welcomePage = (req, res) => {
-    console.log('browser viewaa ? ');
-    console.log(coinMarketService());
+exports.homePage = (req, res) => {
+    console.log('browser homePage ? ');
+    coinMarketService.getAllCurrenciesList((result) => {
+        console.log('result');
+        console.log(result);
 
-    res.render('index', { title: 'welcomePage' });
+        res.render('index', {
+            title: 'welcomePage',
+            list: result
+        });
+    })
 }
+
