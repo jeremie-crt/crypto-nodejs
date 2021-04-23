@@ -4,6 +4,71 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+const url = 'mongodb://localhost:27017';
+
+
+
+// Database Name
+const dbName = 'myproject';
+const client = new MongoClient(url, { useNewUrlParser: true,
+  useUnifiedTopology: true });
+// Use connect method to connect to the server
+/*client.connect(function(err) {
+  assert.strictEqual(null, err);
+  console.log('Connected successfully to server');
+
+  const db = client.db(dbName);
+
+  // Get the documents collection
+  const collection = db.collection('documents');
+
+  client.close();
+});*/
+
+async function run() {
+  try {
+    await client.connect();
+    const database = client.db('sample_mflix');
+    const movies = database.collection('movies');
+    movies.insertMany([
+      {
+        title: 'Post Two',
+        body: 'Body of post two',
+        category: 'Technology',
+        date: Date()
+      },
+      {
+        title: 'Post Three',
+        body: 'Body of post three',
+        category: 'News',
+        date: Date()
+      },
+      {
+        title: 'Post Four',
+        body: 'Body of post three',
+        category: 'Entertainment',
+        date: Date()
+      }
+    ], function(err, result) {
+      assert.strictEqual(err, null);
+      assert.strictEqual(3, result.result.n);
+      assert.strictEqual(3, result.ops.length);
+      console.log('Inserted 3 movies into the collection');
+    });
+
+    // Query for a movie that has the title 'Back to the Future'
+    const query = { title: 'Post Four' };
+    const movie = await movies.findOne(query);
+    console.log(movie);
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
 //disable cache
 let twig = require('twig');
 twig.cache(false)
