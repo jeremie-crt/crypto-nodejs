@@ -14,4 +14,3 @@ exports.homePage = (req, res) => {
         });
     })
 }
-

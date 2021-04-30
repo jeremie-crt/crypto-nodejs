@@ -3,7 +3,10 @@ const coinMarketAPI = require('./CoinMarketApi')
 class coinMarketManager {
 
     static getAllCurrenciesList(next) {
-        coinMarketAPI.getCurrenciesInfo('1','1027','1839','2539')
+        console.log('99999');
+        //coinMarketAPI.getCurrenciesListedIds('1','1027','1839','2539')
+        coinMarketAPI.getCurrenciesListedIds();
+
     }
 
     static getOneCurrency(id) {

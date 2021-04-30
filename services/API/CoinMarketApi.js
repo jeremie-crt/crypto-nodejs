@@ -3,6 +3,11 @@
  */
 const axios = require('axios')
 
+const database = require('../database')
+const express = require('express');
+
+let app = express();
+
 class coinMarketAPI {
 
     //Metadata - Returns all static metadata available for one or more cryptocurrencies
@@ -12,9 +17,11 @@ class coinMarketAPI {
         axiosCall('https://pro-api.coinmarketcap.com/v1/cryptocurrency/info', 'get', {
             'id': listIds,
         }).then((result) => {
+            console.log('resuldzddzt.data');
+
             if(result.status === 200) {
-                console.log(result.data);
                 console.log('result.data');
+                console.log(result.data);
             } else {
                 console.log(result.message);
             }
@@ -40,6 +47,37 @@ class coinMarketAPI {
     //CoinMarketCap ID Map - Returns a mapping of all cryptocurrencies to unique CoinMarketCap ids.
     //https://pro-api.coinmarketcap.com/v1/cryptocurrency/map
     static getCurrenciesListedIds() {
+        axiosCall('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map', 'get', {
+            'listing_status': 'active',
+            'start': '1',
+            'limit': '1000',
+            'sort': 'id'
+        }).then((result) => {
+            if(result.status === 200) {
+                let listIds = []
+                database.getItems('list_currencies')
+                    .then(data => {
+                        //If list db is empty
+                        if(data.length <= 0) {
+                            result.data.data.map(e => {
+                                let data = {
+                                    "id": e.id,
+                                    "name": e.name,
+                                    "symbol": e.symbol,
+                                    "slug": e.slug,
+                                    "rank": e.rank,
+                                }
+                                listIds.push(data)
+                            })
+                            database.insertManyItems('list_currencies', listIds)
+                        }
+                        console.log('listIdssssssssssssss')
+                        console.log(listIds)
+                    })
+            } else {
+                console.log(result.message);
+            }
+        })
     }
 
     //Quotes Latest - Returns the latest market quote for 1 or more cryptocurrencies.
